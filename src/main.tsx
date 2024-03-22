@@ -5,6 +5,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Header from './assets/components/header/Header'
 import HomePage from './assets/components/pages/HomePage'
 import ViewMovie from './assets/components/pages/VIewMovie'
+
+interface MovieDetails {
+  backdrop_path: string;
+  title: string;
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/view-movie/:id",
-    element: <ViewMovie  />
+    element: <ViewMovie />
   }
 ]);
 

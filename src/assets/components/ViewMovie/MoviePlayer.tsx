@@ -1,50 +1,63 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import MovieTitle from "./MovieTitle";
+
+interface MoviePlayerProps {
+  setMovieDetails: React.Dispatch<React.SetStateAction<MovieDetails | null>>;
+}
 
 interface MovieDetails {
   backdrop_path: string;
+  title: string;
 }
 
-export default function MoviePlayer() {
+const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
   const { id } = useParams();
-  const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null); 
+  const [movieDetails, setMovieDetailsLocal] = useState<MovieDetails | null>(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
         const options = {
-          method: 'GET',
+          method: "GET",
           headers: {
-            accept: 'application/json',
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmM0NDRkNDQ5ZmRkOGQ4NGUzMDMzNGZhN2U1OTFmOCIsInN1YiI6IjY1ZjY1ZmI1ZTIxMDIzMDE3ZWVlMDJkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.z1fa1jT_-JUEe0N6UNX-wdvspwCNH0j4hUpE4eg6-VI`,
+            accept: "application/json",
+            Authorization: `Bearer ${
+              import.meta.env.VITE_REACT_APP_MOVIE_API_TOKEN
+            }`,
           },
         };
 
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, options);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}`,
+          options
+        );
         const movieData: MovieDetails = await response.json();
+        setMovieDetailsLocal(movieData);
         setMovieDetails(movieData);
       } catch (error) {
-        console.error('Error fetching movie details:', error);
+        console.error("Error fetching movie details:", error);
       }
     };
 
     if (id) {
       fetchMovieDetails();
     }
-  }, [id]);
+  }, [id, setMovieDetails]);
 
-  if (!movieDetails) {
-    return <div>Loading...</div>;
-  }
-
-  const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`;
+  const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails?.backdrop_path}`;
 
   return (
-    <div className='w-full relative'>
-      <div className='flex justify-center content-center bg-cover bg-no-repeat h-[800px]' style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba( 0, 0, 0, 0.92)), url(${backdropUrl})` }}></div>
+    <div className="w-full relative">
+      <div
+        className="flex justify-center content-center bg-cover bg-no-repeat h-[800px]"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba( 0, 0, 0, 0.92)), url(${backdropUrl})`,
+        }}
+      ></div>
       <div className="absolute top-0 left-0 w-full h-full flex justify-center">
         <iframe
-          className='mt-6'
+          className="mt-6"
           width="70%"
           height="700"
           src={`https://vidsrc.to/embed/movie/${id}`}
@@ -52,7 +65,13 @@ export default function MoviePlayer() {
           allowFullScreen
           title="Movie"
         />
+        <div className="hidden">
+            <MovieTitle movieDetails={movieDetails} />
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default MoviePlayer;
+
