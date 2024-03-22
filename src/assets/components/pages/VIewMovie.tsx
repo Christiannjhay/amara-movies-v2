@@ -1,10 +1,12 @@
 import { useState } from "react";
 import MoviePlayer from "../ViewMovie/MoviePlayer";
 import MovieTitle from "../ViewMovie/MovieTitle";
+import MovieOverview from "../ViewMovie/MovieOverview";
 
 interface MovieDetails {
   backdrop_path: string;
   title: string;
+  overview: string;
 }
 
 export default function ViewMovie() {
@@ -15,25 +17,23 @@ export default function ViewMovie() {
       <div>
         <MoviePlayer setMovieDetails={setMovieDetails} />
       </div>
-      <div className="w-100% flex justify-center">
-        <div className="bg-black rounded-2xl mt-4 mb-4 w-[1300px] h-[400px] grid grid-cols-12">
-          <div className="col-span-4 bg-red-500">
-
-          </div>
-          <div className="col-span-8 bg-red-700">
-            <div className="flex justify-center bg-slate-300">
+      <div className="w-100% flex justify-center ">
+        <div className="bg-black rounded-2xl mt-4 mb-4 w-[1300px] h-[450px] grid grid-cols-12">
+          <div className="col-span-3 bg-red-500"></div>
+          <div className="col-span-9 bg-red-700 flex flex-col">
+            <div className="flex justify-start bg-slate-300 m-2">
               <MovieTitle movieDetails={movieDetails} />
             </div>
-            <div className="flex justify-center bg-fuchsia-300">
-              <p>
-                After an amazing first date, Bea and Ben's fiery attraction
-                turns ice-cold--until they find themselves unexpectedly reunited
-                at a wedding in Australia. So they do what any two mature adults
-                would do: pretend to be a couple.
-              </p>
+            <div className="flex justify-center bg-fuchsia-300 m-2">
+              <MovieOverview movieDetails={movieDetails}/>
             </div>
-            <div className="flex flex-grow justify-center bg-orange-500">
-              <p>asdasdaskdajhsdkj</p>
+            <div className="flex-grow justify-center bg-orange-500 grid grid-cols-12">
+              <div className="col-span-4 bg-blue-500">
+
+              </div>
+              <div className="col-span-8 bg-yellow-200">
+
+              </div>
             </div>
           </div>
         </div>

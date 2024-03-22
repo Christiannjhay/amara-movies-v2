@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieTitle from "./MovieTitle";
+import MovieOverview from "./MovieOverview";
 
 interface MoviePlayerProps {
   setMovieDetails: React.Dispatch<React.SetStateAction<MovieDetails | null>>;
@@ -9,6 +10,7 @@ interface MoviePlayerProps {
 interface MovieDetails {
   backdrop_path: string;
   title: string;
+  overview: string;
 }
 
 const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
@@ -46,6 +48,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
   }, [id, setMovieDetails]);
 
   const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails?.backdrop_path}`;
+  
 
   return (
     <div className="w-full relative">
@@ -67,6 +70,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
         />
         <div className="hidden">
             <MovieTitle movieDetails={movieDetails} />
+            <MovieOverview movieDetails={movieDetails} />
         </div>
       </div>
     </div>
