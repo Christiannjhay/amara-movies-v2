@@ -11,6 +11,8 @@ interface MovieDetails {
   backdrop_path: string;
   title: string;
   overview: string;
+  id: number;
+  poster_path: string;
 }
 
 const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
@@ -34,7 +36,9 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
           `https://api.themoviedb.org/3/movie/${id}`,
           options
         );
+
         const movieData: MovieDetails = await response.json();
+       
         setMovieDetailsLocal(movieData);
         setMovieDetails(movieData);
       } catch (error) {
