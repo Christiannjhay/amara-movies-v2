@@ -12,7 +12,7 @@ interface MovieDetails {
   export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
     return (
       <div className="h-fit">
-          <h1 className="text-[#9c9999] text-md font-light">{movieDetails?.overview}</h1>
+          <h1 className="text-white text-md font-light">{movieDetails?.overview}</h1>
       </div>
     );
   }

@@ -47,22 +47,22 @@ export default function ViewMovie() {
             <div className="flex-grow justify-center grid grid-cols-12">
               <div className="col-span-2 ml-2">
                   <div className="mt-1">
-                    <p className="text-[#9c9999]">Counrty:</p>
+                    <p className="text-red-500">Counrty:</p>
                   </div>
                   <div className="mt-1">
-                    <p className="text-[#9c9999]">Genre:</p>
+                    <p className="text-red-500">Genre:</p>
                   </div>
                   <div className="mt-1">
-                    <p className="text-[#9c9999]">Release:</p>
+                    <p className="text-red-500">Release:</p>
                   </div>
                   <div className="mt-1">
-                    <p className="text-[#9c9999]">Director:</p>
+                    <p className="text-red-500">Director:</p>
                   </div>
                   <div className="mt-1">
-                    <p className="text-[#9c9999]">Production:</p>
+                    <p className="text-red-500">Production:</p>
                   </div>
                   <div className="mt-1">
-                    <p className="text-[#9c9999]">Cast:</p>
+                    <p className="text-red-500">Cast:</p>
                   </div>
                  
               </div>

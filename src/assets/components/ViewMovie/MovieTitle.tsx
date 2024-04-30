@@ -10,7 +10,7 @@ interface MovieTitleProps {
 export default function MovieTitle({ movieDetails }: MovieTitleProps) {
   return (
     <div className="h-fit">
-        <h1 className="text-white text-4xl font-bold">{movieDetails?.title}</h1>
+        <h1 className="text-red-500 text-4xl font-bold">{movieDetails?.title}</h1>
     </div>
   );
 }

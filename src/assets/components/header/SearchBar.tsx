@@ -15,14 +15,14 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSubmit}> {/* Add a form for submission */}
-      <div className="w-80 h-8 rounded-4xl text-black">
+    <form onSubmit={handleSubmit}>
+      <div className="w-[450px] h-10 rounded-4xl text-red-500 ">
         <input
           type="text"
           placeholder="Search movies..."
           value={searchTerm}
           onChange={handleInputChange}
-          className="w-full h-full rounded-2xl"
+          className="w-full h-full rounded-2xl p-4 bg-[#292929]"
         />
       </div>
     </form>
