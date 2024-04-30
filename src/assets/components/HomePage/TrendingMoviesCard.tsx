@@ -11,7 +11,7 @@ interface Movie {
 export default function TrendingMoviesCard() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const options = {
       method: "GET",

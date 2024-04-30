@@ -1,33 +1,46 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Header from './assets/components/header/Header'
-import HomePage from './assets/components/pages/HomePage'
-import ViewMovie from './assets/components/pages/VIewMovie'
-
-interface MovieDetails {
-  backdrop_path: string;
-  title: string;
-}
-
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Header from './assets/components/header/Header';
+import HomePage from './assets/components/pages/HomePage';
+import ViewMovie from './assets/components/pages/VIewMovie';
+import SearchResult
+ from './assets/components/pages/SearchResults';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />
+    element: (
+        <> 
+            <Header /> 
+            <HomePage />
+        </>
+    ) 
   },
   {
     path: "/view-movie/:id",
-    element: <ViewMovie />
+    element: (
+        <>
+            <Header />
+            <ViewMovie />
+        </>
+    )
+  },
+  {
+    path: "/search-results",
+    element: (
+        <>
+            <Header />
+            <SearchResult />
+        </>
+    )
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      <div className='w-100% h-full bg-[#181818] '>
-          <Header/>
-          <RouterProvider router={router}>
-          </RouterProvider>
-      </div>
+    <div className='w-100% h-full bg-[#181818] '> 
+      <RouterProvider router={router} /> {/* No children prop here */}
+    </div>
   </React.StrictMode>,
-)
+);
