@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Header from './assets/components/header/Header';
 import HomePage from './assets/components/pages/HomePage';
 import ViewMovie from './assets/components/pages/VIewMovie';
