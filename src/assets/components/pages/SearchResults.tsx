@@ -5,7 +5,7 @@ interface Movie {
   id: number;
   title: string;
   poster_path: string;
-  // Add more properties as needed
+  
 }
 
 interface SearchResultProps { } // Add props if needed
