@@ -57,14 +57,14 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
   return (
     <div className="w-full relative">
       <div
-        className="flex justify-center content-center bg-cover bg-no-repeat h-[800px]"
+        className="flex justify-center content-center bg-cover bg-no-repeat h-[300px] sm:h-[500px] md:h-[600px] lg:h-[850px]"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba( 0, 0, 0, 0.92)), url(${backdropUrl})`,
         }}
       ></div>
       <div className="absolute top-0 left-0 w-full h-full flex justify-center">
         <iframe
-          className="mt-6"
+          className="mt-6 h-5/6 w-11/12"
           width="70%"
           height="700"
           src={`https://vidsrc.to/embed/movie/${id}`}

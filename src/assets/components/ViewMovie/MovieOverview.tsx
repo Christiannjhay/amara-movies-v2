@@ -11,8 +11,8 @@ interface MovieDetails {
   
   export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
     return (
-      <div className="h-fit">
-          <h1 className="text-white text-md font-light">{movieDetails?.overview}</h1>
+      <div className="h-fit flex justify-center">
+          <h1 className="text-white text-sm sm:text-base font-light">{movieDetails?.overview}</h1>
       </div>
     );
   }
