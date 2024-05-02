@@ -64,7 +64,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {
       ></div>
       <div className="absolute top-0 left-0 w-full h-full flex justify-center">
         <iframe
-          className="mt-6 h-[85%] w-11/12"
+          className="mt-6 h-[90%] w-11/12"
           width="70%"
           height="700"
           src={`https://vidsrc.to/embed/movie/${id}`}
