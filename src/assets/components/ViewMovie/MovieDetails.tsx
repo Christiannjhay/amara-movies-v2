@@ -135,7 +135,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
 
   return (
     <div className="h-fit ml-12 sm:ml-1">
-      <div className="mt-1 text-white text-sm sm:text-base">
+      <div className="mt-1 text-white text-xs sm:text-base">
       {topProductionCountry.map((country, index) => (
           <div key={country.id} className={index !== topProductionCountry.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
             {country.name}
@@ -143,7 +143,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           </div>
         ))}
       </div>
-      <div className="flex text-white text-sm sm:text-base">
+      <div className="flex text-white text-xs sm:text-base">
       {topGenre.map((genre, index) => (
           <div key={genre.id} className={index !== topGenre.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
             {genre.name}
@@ -151,13 +151,13 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           </div>
         ))}
       </div>
-      <div className="mt-1 text-[#9c9999] text-sm sm:text-base">
+      <div className="mt-1 text-[#9c9999] text-xs sm:text-base">
          {releaseDate.length > 0 && <p>{releaseDate[0].date}</p>} 
       </div>
-      <div className="mt-1 text-white text-sm sm:text-base">
+      <div className="mt-1 text-white text-xs sm:text-base">
           <p>{director}</p>
       </div>
-      <div className="w-100% flex text-white text-sm sm:text-base">
+      <div className="w-100% flex text-white text-xs sm:text-base">
         {topProductionCompanies.map((company, index) => (
           <div key={company.id} className={index !== topProductionCompanies.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
             {company.name}
@@ -165,7 +165,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           </div>
         ))}
       </div>
-      <div className="mt-1 flex text-white text-sm sm:text-base">
+      <div className="mt-1 flex text-white text-xs sm:text-base">
         {topCast.map((cast, index) => (
             <div key={cast.id} className={index !== topCast.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
               {cast.name}
