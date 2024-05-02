@@ -33,10 +33,10 @@ function SearchBar() {
 
         <button
           type="submit"
-          className="bg-red-500 text-white rounded-r-2xl p-4 hover:bg-gray-800 flex items-center"
+          className="bg-[#FFD1DC] text-white rounded-r-2xl p-4 hover:bg-gray-800 flex items-center"
         >
          
-            <FontAwesomeIcon icon={faMagnifyingGlass} className=""/>
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black"/>
           
         </button>
       </div>
