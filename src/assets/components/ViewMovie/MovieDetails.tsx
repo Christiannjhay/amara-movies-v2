@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 interface MovieDetails {
   backdrop_path: string;
@@ -25,7 +25,7 @@ interface Genre {
 }
 
 interface ReleaseDate {
-  date: string; 
+  date: string;
 }
 
 interface Cast {
@@ -40,19 +40,19 @@ interface MovieDetailsProps {
 interface CrewMember {
   job: string;
   name: string;
- 
 }
 
-
-
 export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
-  const [topProductionCompanies, setTopProductionCompanies] = useState<ProductionCompany[] >([]);
-  const [topProductionCountry, setTopProductionCountry] = useState< ProductionCountry[]>([]);
+  const [topProductionCompanies, setTopProductionCompanies] = useState<
+    ProductionCompany[]
+  >([]);
+  const [topProductionCountry, setTopProductionCountry] = useState<
+    ProductionCountry[]
+  >([]);
   const [topGenre, setTopGenre] = useState<Genre[]>([]);
   const [releaseDate, setReleaseDate] = useState<ReleaseDate[]>([]);
   const [topCast, setTopCast] = useState<Cast[]>([]);
-  const [director, setDirector] = useState<string | null>('');
-  
+  const [director, setDirector] = useState<string | null>("");
 
   useEffect(() => {
     const fetchProductionCompanies = async () => {
@@ -74,10 +74,11 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           );
           const data = await response.json();
 
-          const productionCompanies: ProductionCompany[] =  data.production_companies;
-          const productionCountry: ProductionCountry[] = data.production_countries;
+          const productionCompanies: ProductionCompany[] =
+            data.production_companies;
+          const productionCountry: ProductionCountry[] =
+            data.production_countries;
           const productionGenre: Genre[] = data.genres;
-          
 
           const top3ProductionCompanies = productionCompanies.slice(0, 3);
           setTopProductionCompanies(top3ProductionCompanies);
@@ -88,9 +89,11 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           const top3Genre = productionGenre.slice(0, 3);
           setTopGenre(top3Genre);
 
-          const formattedReleaseDate = format(new Date(data.release_date), 'MMMM d, yyyy');
+          const formattedReleaseDate = format(
+            new Date(data.release_date),
+            "MMMM d, yyyy"
+          );
           setReleaseDate([{ date: formattedReleaseDate }]);
-
         } catch (error) {
           console.error("Error fetching details:", error);
         }
@@ -98,7 +101,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
         console.warn("Movie details or ID unavailable for fetching.");
       }
 
-      if (movieDetails && movieDetails.id){
+      if (movieDetails && movieDetails.id) {
         try {
           const creditsOptions = {
             method: "GET",
@@ -107,71 +110,135 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
               Authorization: `Bearer ${
                 import.meta.env.VITE_REACT_APP_MOVIE_API_TOKEN
               }`,
-            }, 
+            },
           };
-          const creditsResponse = await fetch(`https://api.themoviedb.org/3/movie/${movieDetails.id}/credits?language=en-US`, creditsOptions);
+          const creditsResponse = await fetch(
+            `https://api.themoviedb.org/3/movie/${movieDetails.id}/credits?language=en-US`,
+            creditsOptions
+          );
           const data = await creditsResponse.json();
-          
+
           const movieCast: Cast[] = data.cast;
-          
-          const director = data.crew.find((member: CrewMember) => member.job === 'Director');
-            if (director) {
-              setDirector(director.name); 
-            } else {
-                setDirector('Unknown');
-            }
+
+          const director = data.crew.find(
+            (member: CrewMember) => member.job === "Director"
+          );
+          if (director) {
+            setDirector(director.name);
+          } else {
+            setDirector("Unknown");
+          }
           const top3Cast = movieCast.slice(0, 3);
           setTopCast(top3Cast);
-          
-          } catch (error) {
-              console.error('Error fetching credits:', error);
-          }
+        } catch (error) {
+          console.error("Error fetching credits:", error);
+        }
       }
-      
     };
 
     fetchProductionCompanies();
-  }, [movieDetails], );
+  }, [movieDetails]);
 
   return (
-    <div className="h-fit ml-12 sm:ml-1 ">
-      <div className="mt-1 text-white text-xs sm:text-base ">
-      {topProductionCountry.map((country, index) => (
-          <div key={country.id} className={index !== topProductionCountry.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
-            {country.name}
-            {index !== topProductionCountry.length - 1 && ','}
+    <div className="h-max ml-5 sm:ml-5 w-full">
+      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2 ">
+          <div className="mt-1">
+            <p>Country:</p>
           </div>
-        ))}
-      </div>
-      <div className="flex text-white text-xs sm:text-base">
-      {topGenre.map((genre, index) => (
-          <div key={genre.id} className={index !== topGenre.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
-            {genre.name}
-            {index !== topGenre.length - 1 && ','}
-          </div>
-        ))}
-      </div>
-      <div className="mt-1 text-[#9c9999] text-xs sm:text-base">
-         {releaseDate.length > 0 && <p>{releaseDate[0].date}</p>} 
-      </div>
-      <div className="mt-1 text-white text-xs sm:text-base">
-          <p>{director}</p>
-      </div>
-      <div className="w-100% flex flex-wrap text-white text-xs sm:text-base">
-        {topProductionCompanies.map((company, index) => (
-          <div key={company.id} className={index !== topProductionCompanies.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
-            {company.name}
-            {index !== topProductionCompanies.length - 1 && ','}
-          </div>
-        ))}
-      </div>
-      <div className="mt-1 flex flex-wrap text-white text-xs sm:text-base">
-        {topCast.map((cast, index) => (
-            <div key={cast.id} className={index !== topCast.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
-              {cast.name}
-              {index !== topCast.length - 1 && ','}
+        </div>
+        <div className="col-span-10">
+          {topProductionCountry.map((country, index) => (
+            <div
+              key={country.id}
+              className={
+                index !== topProductionCountry.length - 1 ? "mr-1 mt-1" : "mt-1"
+              }
+            >
+              {country.name}
+              {index !== topProductionCountry.length - 1 && ","}
             </div>
           ))}
+        </div>
+      </div>
+      <div className=" text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2">
+          <div className="mt-1">
+            <p>Genre:</p>
+          </div>
+        </div>
+        <div className="col-span-10 flex flex-wrap">
+          {topGenre.map((genre, index) => (
+            <div
+              key={genre.id}
+              className={index !== topGenre.length - 1 ? "mr-1 mt-1" : "mt-1"}
+            >
+              {genre.name}
+              {index !== topGenre.length - 1 && ","}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className=" text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2">
+          <div className="mt-1 text-[#9c9999]">
+            <p>Release:</p>
+          </div>
+        </div>
+        <div className="col-span-10 flex flex-wrap text-[#9c9999] mt-1">
+          {releaseDate.length > 0 && <p>{releaseDate[0].date}</p>}
+        </div>
+      </div>
+      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2 ">
+          <div className="mt-1">
+            <p>Director:</p>
+          </div>
+        </div>
+        <div className="col-span-10 mt-1">
+          <p>{director}</p>
+        </div>
+      </div>
+      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2 ">
+          <div className="mt-1">
+            <p>Production:</p>
+          </div>
+        </div>
+        <div className="col-span-10 flex flex-wrap">
+          {topProductionCompanies.map((company, index) => (
+            <div
+              key={company.id}
+              className={
+                index !== topProductionCompanies.length - 1
+                  ? "mr-1 mt-1"
+                  : "mt-1"
+              }
+            >
+              {company.name}
+              {index !== topProductionCompanies.length - 1 && ","}
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6 ">
+        <div className="col-span-2">
+          <div className="mt-1">
+            <p>Cast:</p>
+          </div>
+        </div>
+        <div className="col-span-10 flex ">
+          {topCast.map((cast, index) => (
+            <div
+              key={cast.id}
+              className={index !== topCast.length - 1 ? "mr-1 mt-1" : "mt-1"}
+            >
+              {cast.name}
+              {index !== topCast.length - 1 && ","}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

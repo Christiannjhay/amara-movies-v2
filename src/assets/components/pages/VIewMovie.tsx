@@ -16,55 +16,46 @@ export default function ViewMovie() {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 
   return (
-    <div className="">
-      <div className="h-[100%] bg-[#181818]">
+    <div className="h-screen overflow-auto">
+      <div className="h-full ">
         <div>
           <MoviePlayer setMovieDetails={setMovieDetails} />
         </div>
-        <div className="w-100% flex justify-center h-fit">
-          <div className=" rounded-2xl mt-4 mb-4 w-[1300px] h-fit grid grid-cols-12">
-            <div className="hidden col-span-3 sm:block ">
-              <div className="mr-4]">
-                {movieDetails?.poster_path ? (
-                  <img
-                    className="mb-4 rounded-2xl"
-                    src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-                    alt="Movie Poster"
-                  />
-                ) : (
-                  <p>PICTURE (Placeholder if needed)</p>
-                )}
-              </div>
-            </div>
-            <div className="col-span-9 flex flex-col">
-              <div className="flex justify-start m-2">
-                <MovieTitle movieDetails={movieDetails} />
-              </div>
-              <div className="flex justify-center m-2">
-                <MovieOverview movieDetails={movieDetails} />
-              </div>
-              <div className="flex-grow justify-center grid grid-cols-12">
-                <div className="col-span-2 ml-2">
-                  <div className="mt-1">
-                    <p className="text-[#FFD1DC] text-xs sm:text-base">Counrty:</p>
-                  </div>
-                  <div className="mt-1">
-                    <p className="text-[#FFD1DC] text-xs sm:text-base">Genre:</p>
-                  </div>
-                  <div className="mt-1">
-                    <p className="text-[#FFD1DC] text-xs sm:text-base">Release:</p>
-                  </div>
-                  <div className="mt-1">
-                    <p className="text-[#FFD1DC] text-xs sm:text-base">Director:</p>
-                  </div>
-                  <div className="mt-1">
-                    <p className="text-[#FFD1DC] text-xs sm:text-base">Production:</p>
-                  </div>
-                  <div className="mt-1">
-                    <p className="text-[#FFD1DC] text-xs sm:text-base">Cast:</p>
-                  </div>
+        <div className="w-100% flex justify-center h-fit relative">
+          <div className="w-full">
+            {movieDetails?.poster_path ? (
+              <img
+                className="mb-4 rounded-2xl w-full opacity-10 sm:hidden"
+                src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+                alt="Movie Poster"
+              />
+            ) : (
+              <p>PICTURE (Placeholder if needed)</p>
+            )}
+          </div>
+          <div className="absolute max-w-full flex flex-wrap">
+            <div className=" rounded-2xl mt-4 mb-4 w-[1300px] h-fit grid grid-cols-12">
+              <div className="hidden col-span-3 sm:block m-2">
+                <div className="mr-4]">
+                  {movieDetails?.poster_path ? (
+                    <img
+                      className="mb-4 rounded-2xl"
+                      src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+                      alt="Movie Poster"
+                    />
+                  ) : (
+                    <p>PICTURE (Placeholder if needed)</p>
+                  )}
                 </div>
-                <div className="col-span-10">
+              </div>
+              <div className="col-span-9 flex flex-col ">
+                <div className="flex justify-start m-2 ">
+                  <MovieTitle movieDetails={movieDetails} />
+                </div>
+                <div className="flex justify-center m-2">
+                  <MovieOverview movieDetails={movieDetails} />
+                </div>
+                <div className="flex m-2 ">
                   <MovieDetails movieDetails={movieDetails} />
                 </div>
               </div>
