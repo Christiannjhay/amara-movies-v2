@@ -18,7 +18,7 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md mx-5 hidden search:block">
+    <form onSubmit={handleSubmit} className="hidden w-full max-w-md mx-5 search:block">
       <div className="flex rounded-4xl text-red-500 h-9">
         <input
           type="text"
