@@ -157,7 +157,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
       <div className="mt-1 text-white text-xs sm:text-base">
           <p>{director}</p>
       </div>
-      <div className="w-100% flex flex-wrap text-white text-xs sm:text-base bg-red-300">
+      <div className="w-100% flex flex-wrap text-white text-xs sm:text-base">
         {topProductionCompanies.map((company, index) => (
           <div key={company.id} className={index !== topProductionCompanies.length - 1 ? 'mr-1 mt-1' : 'mt-1'}>
             {company.name}
