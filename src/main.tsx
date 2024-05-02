@@ -39,8 +39,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div className='w-100% h-full bg-[#181818] '> 
-      <RouterProvider router={router} /> {/* No children prop here */}
+    <div className=' w-100% h-svh bg-[#181818] '> 
+      <RouterProvider router={router} /> 
     </div>
   </React.StrictMode>,
 );

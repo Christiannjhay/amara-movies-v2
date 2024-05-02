@@ -17,7 +17,7 @@ export default function ViewMovie() {
 
   return (
     <div className="">
-      <div className="h-full bg-[#181818]">
+      <div className="h-[100%] bg-[#181818]">
         <div>
           <MoviePlayer setMovieDetails={setMovieDetails} />
         </div>
