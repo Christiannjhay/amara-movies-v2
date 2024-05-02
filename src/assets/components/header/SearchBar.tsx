@@ -18,26 +18,20 @@ function SearchBar() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full md:w-3/4 lg:w-1/2 mr-4 ml-4"
-    >
+    <form onSubmit={handleSubmit} className="w-full max-w-md mx-5 hidden search:block">
       <div className="flex rounded-4xl text-red-500 h-9">
         <input
           type="text"
           placeholder="Search movies..."
           value={searchTerm}
           onChange={handleInputChange}
-          className="flex-grow rounded-l-2xl p-4 bg-[#292929]" // Allow input to grow
+          className="flex-grow rounded-l-2xl p-4 bg-[#292929]"
         />
-
         <button
           type="submit"
           className="bg-[#FFD1DC] text-white rounded-r-2xl p-4 hover:bg-gray-800 flex items-center"
         >
-         
-            <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black"/>
-          
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black" />
         </button>
       </div>
     </form>
