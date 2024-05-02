@@ -143,8 +143,8 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
     <div className="h-max ml-5 sm:ml-5 w-full">
       <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
         <div className="col-span-2 ">
-          <div className="mt-1">
-            <p>Country:</p>
+          <div className="mt-1 ">
+            <p className="text-[#FFD1DC]">Country:</p>
           </div>
         </div>
         <div className="col-span-10">
@@ -164,7 +164,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
       <div className=" text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
         <div className="col-span-2">
           <div className="mt-1">
-            <p>Genre:</p>
+            <p className="text-[#FFD1DC]">Genre:</p>
           </div>
         </div>
         <div className="col-span-10 flex flex-wrap">
@@ -182,7 +182,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
       <div className=" text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
         <div className="col-span-2">
           <div className="mt-1 text-[#9c9999]">
-            <p>Release:</p>
+            <p className="text-[#FFD1DC]">Release:</p>
           </div>
         </div>
         <div className="col-span-10 flex flex-wrap text-[#9c9999] mt-1">
@@ -192,7 +192,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
       <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
         <div className="col-span-2 ">
           <div className="mt-1">
-            <p>Director:</p>
+            <p className="text-[#FFD1DC]">Director:</p>
           </div>
         </div>
         <div className="col-span-10 mt-1">
@@ -202,7 +202,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
       <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
         <div className="col-span-2 ">
           <div className="mt-1">
-            <p>Production:</p>
+            <p className="text-[#FFD1DC]">Production:</p>
           </div>
         </div>
         <div className="col-span-10 flex flex-wrap">
@@ -225,7 +225,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
       <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6 ">
         <div className="col-span-2">
           <div className="mt-1">
-            <p>Cast:</p>
+            <p className="text-[#FFD1DC]">Cast:</p>
           </div>
         </div>
         <div className="col-span-10 flex ">
