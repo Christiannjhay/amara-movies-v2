@@ -140,10 +140,12 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
   }, [movieDetails]);
 
   return (
-    <div className="h-fit justify-start flex-wrap w-full overflow-hidden ml-5">
-      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9">
-        <div className="col-span-2 mt-1 text-[#FFD1DC]">
-          <p>Country:</p>
+    <div className="h-max ml-5 sm:ml-5 w-full">
+      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2 ">
+          <div className="mt-1 ">
+            <p className="text-[#FFD1DC]">Country:</p>
+          </div>
         </div>
         <div className="col-span-10">
           {topProductionCountry.map((country, index) => (
@@ -159,11 +161,13 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           ))}
         </div>
       </div>
-      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9">
-        <div className="col-span-2 mt-1 text-[#FFD1DC]">
-          <p>Genre:</p>
+      <div className=" text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2">
+          <div className="mt-1">
+            <p className="text-[#FFD1DC]">Genre:</p>
+          </div>
         </div>
-        <div className="col-span-10 flex">
+        <div className="col-span-10 flex flex-wrap">
           {topGenre.map((genre, index) => (
             <div
               key={genre.id}
@@ -175,27 +179,33 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           ))}
         </div>
       </div>
-      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
-        <div className="col-span-2 mt-1 text-[#FFD1DC]">
-          <p>Release:</p>
+      <div className=" text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
+        <div className="col-span-2">
+          <div className="mt-1 text-[#9c9999]">
+            <p className="text-[#FFD1DC]">Release:</p>
+          </div>
         </div>
-        <div className="col-span-10 mt-1 text-[#afafb1]">
+        <div className="col-span-10 flex flex-wrap text-[#9c9999] mt-1">
           {releaseDate.length > 0 && <p>{releaseDate[0].date}</p>}
         </div>
       </div>
       <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
-        <div className="col-span-2 mt-1 text-[#FFD1DC]">
-          <p>Director:</p>
+        <div className="col-span-2 ">
+          <div className="mt-1">
+            <p className="text-[#FFD1DC]">Director:</p>
+          </div>
         </div>
         <div className="col-span-10 mt-1">
           <p>{director}</p>
         </div>
       </div>
       <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
-        <div className="col-span-2 mt-1 text-[#FFD1DC]">
-          <p>Production:</p>
+        <div className="col-span-2 ">
+          <div className="mt-1">
+            <p className="text-[#FFD1DC]">Production:</p>
+          </div>
         </div>
-        <div className="col-span-10 flex mt-1">
+        <div className="col-span-10 flex flex-wrap">
           {topProductionCompanies.map((company, index) => (
             <div
               key={company.id}
@@ -211,11 +221,14 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
           ))}
         </div>
       </div>
-      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6">
-        <div className="col-span-2 mt-1 text-[#FFD1DC]">
-          <p>Cast:</p>
+      
+      <div className="mt-1 text-white text-xs sm:text-base grid grid-cols-12 gap-9 sm:gap-6 ">
+        <div className="col-span-2">
+          <div className="mt-1">
+            <p className="text-[#FFD1DC]">Cast:</p>
+          </div>
         </div>
-        <div className="col-span-10 flex mt-1">
+        <div className="col-span-10 flex">
           {topCast.map((cast, index) => (
             <div
               key={cast.id}
