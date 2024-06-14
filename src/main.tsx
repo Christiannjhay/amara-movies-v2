@@ -11,7 +11,6 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <>
-        <Header />
         <HomePage />
       </>
     ),
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
     path: "/view-movie/:id",
     element: (
       <>
-        <Header />
+        <Header/>
         <ViewMovie />
       </>
     ),
