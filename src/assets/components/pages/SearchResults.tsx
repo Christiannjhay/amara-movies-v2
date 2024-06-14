@@ -8,12 +8,12 @@ interface Movie {
   
 }
 
-interface SearchResultProps { } // Add props if needed
+interface SearchResultProps { } 
 
-function SearchResult({ }: SearchResultProps) { // Destructure props
+function SearchResult({ }: SearchResultProps) {
   const location = useLocation();
   const searchTerm = new URLSearchParams(location.search).get('query');
-  const [movies, setMovies] = useState<Movie[]>([]); // Type the movies array
+  const [movies, setMovies] = useState<Movie[]>([]); 
   const navigate = useNavigate();
 
   useEffect(() => {

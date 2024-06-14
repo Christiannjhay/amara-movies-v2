@@ -1,40 +1,49 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
-import React, { useState } from "react";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
 
 function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
+  const { handleSubmit, control, reset } = useForm();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSearchTerm("");
-    navigate(`/search-results?query=${searchTerm}`);
+  const onSubmit = (formData: any) => {
+    navigate(`/search-results?query=${formData.searchTerm}`);
+    reset();
   };
+  const form = useForm();
 
   return (
-    <form onSubmit={handleSubmit} className="hidden w-full max-w-md mx-5 search:block">
-      <div className="flex rounded-4xl text-red-500 h-9">
-        <input
-          type="text"
-          placeholder="Search movies..."
-          value={searchTerm}
-          onChange={handleInputChange}
-          className="flex-grow rounded-l-2xl p-4 bg-[#292929]"
+    <Form {...form}>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex w-2/4">
+        <FormField
+          
+          control={control}
+          name="searchTerm"
+          render={({ field }) => (
+            <FormItem className="w-full">
+              <FormControl>
+                <Input
+                  type="text"
+                  placeholder="Search movies..."
+                  {...field}
+                  className="flex-grow rounded-l-2xl rounded-r-none p-4 bg-[#292929] text-white"
+                />
+              </FormControl>
+            </FormItem>
+          )}
         />
-        <button
+        <Button
           type="submit"
-          className="bg-[#FFD1DC] text-white rounded-r-2xl p-4 hover:bg-gray-800 flex items-center"
+          className="bg-[#FFD1DC] text-white rounded-r-xl rounded-l-none p-4 hover:bg-gray-800 flex items-center"
         >
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black" />
-        </button>
-      </div>
-    </form>
+          <FontAwesomeIcon icon={faSearch} className="text-black" />
+        </Button>
+      </form>
+    </Form>
   );
 }
 
