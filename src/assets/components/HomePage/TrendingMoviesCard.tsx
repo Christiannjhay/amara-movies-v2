@@ -85,18 +85,18 @@ export default function TrendingMoviesCard() {
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-screen">
       <div className="flex justify-center items-center relative">
         <div className="w-full absolute mt-24 z-10">
           <HomeHeader />
         </div>
       </div>
       <div className="flex">
-        <Carousel className="w-full z-0 h-full">
+        <Carousel className="w-full h-screen z-0">
           <CarouselContent>
             {movies.map((movie) => (
               <CarouselItem key={movie.id}>
-                <div className="w-full h-full relative">
+                <div className="w-full h-[350px] sm:h-full relative">
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     alt={movie.title}
@@ -104,25 +104,25 @@ export default function TrendingMoviesCard() {
                   />
                   <div className="absolute inset-0 bg-black/50">
                   </div>
-                  <div className="absolute bottom-56 left-24 text-white w-[70%]">
-                    <h1 className="text-4xl text-[#FFD1DC] font-extrabold">
+                  <div className="absolute bottom-2 md:bottom-10 lg:bottom-56 left-24 text-white w-[70%]">
+                    <h1 className=" text-[#FFD1DC] font-extrabold text-sm md:text-4xl">
                       {movie.title}
                     </h1>
                     <div className="flex flex-row mt-2">
-                        <h1 className="text-slate-300">{getYearFromDate(movie.release_date)}</h1>
-                        <h1 className="ml-2 text-slate-300 ">{movie.duration}</h1>
-                        <h1 className="ml-1 text-slate-300">min</h1>
-                        <div className="ml-3 text-slate-300"><StarIcon/></div>
-                        <h1 className="ml-1 text-slate-300">{formatVoteAverage(movie.vote_average)}</h1>
+                        <h1 className="text-slate-300 text-sm md:text-base">{getYearFromDate(movie.release_date)}</h1>
+                        <h1 className="ml-2 text-slate-300 text-sm md:text-base">{movie.duration}</h1>
+                        <h1 className="ml-1 text-slate-300 text-sm md:text-base">min</h1>
+                        <div className="ml-3 text-slate-300 text-sm md:text-base"><StarIcon/></div>
+                        <h1 className="ml-1 text-slate-300 text-sm md:text-base">{formatVoteAverage(movie.vote_average)}</h1>
                         <div className="ml-3 flex flex-row">{movie.genres.map((genre) => (
-                        <div key={genre.id} className="mr-2">
+                        <div key={genre.id} className="mr-2 text-sm md:text-base hidden md:block">
                           <span className="bg-gray-200 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold">
                             {genre.name}
                           </span>
                         </div>
                       ))}</div>
                     </div>
-                    <h2 className="text-xl text-white font-light mt-2 line-clamp-3">
+                    <h2 className="text-xl text-white font-light mt-2 line-clamp-3 hidden md:block">
                       {movie.overview}
                     </h2>
                     <Button 
@@ -130,9 +130,9 @@ export default function TrendingMoviesCard() {
                       console.log("Clicked movie ID:", movie.id);
                       navigate(`/view-movie/${movie.id}`);
                     }}
-                    className="bg-[#FFD1DC] hover:bg-[#ddb8c1] text-black  py-7 px-6 rounded-full mt-5 flex items-center">
+                    className="bg-[#FFD1DC] hover:bg-[#ddb8c1] text-black py-3 px-4 md:px-6 md:py-6 md:mt-4 rounded-full mt-1 flex items-center">
                       <PlayIcon />
-                      <h1 className="ml-2 font-normal text-xl">Watch Now</h1>
+                      <h1 className="ml-2 font-normal text-xs md:text-base">Watch Now</h1>
                     </Button>
                   </div>
                 </div>

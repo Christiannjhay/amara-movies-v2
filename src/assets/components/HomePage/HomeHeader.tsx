@@ -6,7 +6,7 @@ import HomeSearchBar from "./HomeSearchBar";
 export default function HomeHeader() {
   return (
     <div className="w-100% h-[150px] grid grid-cols-1 sm:grid-cols-12 sm:h-[100px] ">
-      <div className="flex col-span-1 justify-center items-center sm:col-span-3">
+      <div className="flex col-span-1 justify-center items-center mt-4 sm:col-span-3">
         <Link to="/">
           <Logo />
         </Link>
