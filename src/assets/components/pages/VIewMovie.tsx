@@ -10,6 +10,9 @@ interface MovieDetails {
   overview: string;
   id: number;
   poster_path: string;
+  runtime: number;
+  vote_average: number;
+  release_date: string;
 }
 
 export default function ViewMovie() {

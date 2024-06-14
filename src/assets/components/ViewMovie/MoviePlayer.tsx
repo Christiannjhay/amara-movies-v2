@@ -13,6 +13,9 @@ interface MovieDetails {
   overview: string;
   id: number;
   poster_path: string;
+  runtime: number;
+  vote_average: number;
+  release_date: string;
 }
 
 const MoviePlayer: React.FC<MoviePlayerProps> = ({ setMovieDetails }) => {

@@ -1,19 +1,59 @@
+import StarIcon from "@/icons/StarIcon";
 
 interface MovieDetails {
-    backdrop_path: string;
-    title: string;
-    overview: string;
+  backdrop_path: string;
+  title: string;
+  overview: string;
+  runtime: number;
+  vote_average: number;
+  release_date: string;
+}
+
+interface MovieOverviewProps {
+  movieDetails: MovieDetails | null;
+}
+
+const formatVoteAverage = (voteAverage: number | undefined): string => {
+  if (voteAverage === undefined) {
+    return "";
   }
-  
-  interface MovieOverviewProps {
-    movieDetails: MovieDetails | null;
+  return voteAverage.toFixed(1);
+};
+
+const getYearFromDate = (dateString: string | undefined): string => {
+  if (!dateString) {
+    return "";
   }
-  
-  export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
-    return (
-      <div className="h-fit flex justify-center flex-wrap ">
-          <h1 className="text-white text-xs sm:text-base font-light ml-5">{movieDetails?.overview}</h1>
+
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) {
+    return "";
+  }
+
+  return date.getFullYear().toString();
+};
+
+export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
+  return (
+    <div className="h-fit flex justify-center flex-wrap flex-col">
+      <div className="flex flex-row ml-5">
+      <div className="text-white">
+          <StarIcon />
+        </div>
+        <h1 className="text-white ml-1">
+          {formatVoteAverage(movieDetails?.vote_average)}
+        </h1>
+        <h1 className="text-white ml-2">
+          {getYearFromDate(movieDetails?.release_date)}
+        </h1>
+        <h1 className="text-white ml-2">{movieDetails?.runtime}</h1>
+        <h1 className=" text-white ml-1">min</h1>
+        
       </div>
-    );
-  }
-  
+
+      <h1 className="text-slate-300 text-xs sm:text-base font-light ml-5 mt-4">
+        {movieDetails?.overview}
+      </h1>
+    </div>
+  );
+}
