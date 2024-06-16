@@ -44,7 +44,7 @@ export default function TrendingMoviesCard() {
         });
         const data = await response.json();
         const popularMovies: Movie[] = data.results;
-
+          
         // Fetch detailed information for each movie
         const detailedMoviesPromises = popularMovies.map(async (movie) => {
           const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie.id}?append_to_response=credits&language=en-US`;
@@ -58,7 +58,7 @@ export default function TrendingMoviesCard() {
           });
           const movieDetailsData = await response.json();
 
-          // Example: Assign additional fields like duration from detailed data
+          
           movie.duration = movieDetailsData.runtime;
           movie.genres = movieDetailsData.genres.slice(0, 3);
 
@@ -105,8 +105,8 @@ export default function TrendingMoviesCard() {
                   />
                   <div className="absolute inset-0 bg-black/50">
                   </div>
-                  <div className="absolute bottom-2 md:bottom-10 lg:bottom-72 left-24 text-white w-[70%]">
-                    <h1 className=" text-[#FFD1DC] font-extrabold text-sm md:text-4xl">
+                  <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-18 xl:bottom-64 left-24 text-white w-[70%]">
+                    <h1 className=" text-[#FFD1DC] font-extrabold text-sm md:text-3xl lg:text-4xl">
                       {movie.title}
                     </h1>
                     <div className="flex flex-row mt-2">
@@ -123,7 +123,7 @@ export default function TrendingMoviesCard() {
                         </div>
                       ))}</div>
                     </div>
-                    <h2 className="text-xl text-white font-light mt-2 line-clamp-3 hidden md:block">
+                    <h2 className="lg:text-lg xl:text-xl text-white font-light mt-2 line-clamp-3 hidden md:block">
                       {movie.overview}
                     </h2>
                     <Button 
