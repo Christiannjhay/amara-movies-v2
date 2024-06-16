@@ -101,10 +101,11 @@ export default function TrendingMoviesCard() {
                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     alt={movie.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/50">
                   </div>
-                  <div className="absolute bottom-2 md:bottom-10 lg:bottom-56 left-24 text-white w-[70%]">
+                  <div className="absolute bottom-2 md:bottom-10 lg:bottom-72 left-24 text-white w-[70%]">
                     <h1 className=" text-[#FFD1DC] font-extrabold text-sm md:text-4xl">
                       {movie.title}
                     </h1>
