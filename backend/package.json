@@ -1,13 +1,12 @@
 {
-  "name": "backend",
+  "name": "my-node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "ts-node-dev --respawn src/index.ts",
-    "build": "tsc && node ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/index.js",
+    "dev": "ts-node api/index.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +20,6 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
-    "@types/node-fetch": "^2.6.11",
-    "ts-node-dev": "^2.0.0"
+    "ts-node": "^10.9.2"
   }
 }
