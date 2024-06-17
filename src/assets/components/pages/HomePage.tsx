@@ -5,7 +5,7 @@ import TrendingMoviesCard from "../HomePage/TrendingMoviesCard";
 export default function HomePage() {
 
   useEffect(() => {
-    fetch('http://localhost:3000/working')
+    fetch('https://andra-movies.vercel.app/api/hello')
       .then(response => response.text())
       .then(data => {
         console.log(data);  // Should log "Hello, World!" from the backend
