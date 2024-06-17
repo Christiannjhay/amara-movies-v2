@@ -1,16 +1,10 @@
 import express, { Request, Response } from 'express';
-import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Enable CORS
-app.use(cors());
-
-app.get('/working', (req: Request, res: Response) => {
-  res.send('Hello, World!');
+app.get('/api/hello', (req: Request, res: Response) => {
+  res.status(200).json({ message: 'Hello from the backend!' });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+export default app;
