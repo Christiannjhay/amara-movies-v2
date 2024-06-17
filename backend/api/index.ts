@@ -3,6 +3,7 @@ import cors from 'cors';
 import { logErrorMiddleware, returnError } from './errorHandler';
 const app = express();
 const port = process.env.PORT || 3000;
+const apiKey = process.env.VITE_REACT_APP_MOVIE_API_TOKEN;
 
 app.use(cors());
 
@@ -17,7 +18,7 @@ app.get('/api/popular', async (req: Request, res: Response, next) => {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: 'Bearer your_access_token_here'
+        Authorization: `Bearer ${apiKey}`
       }
     };
 
