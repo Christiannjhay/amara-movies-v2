@@ -1,9 +1,9 @@
 {
-    "functions": {
-      "api/*": {
-        "runtime": "nodejs14.x",
-        "memory": 512
-      }
-    }
-  }
-  
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/api"
+        }
+    ]
+}
