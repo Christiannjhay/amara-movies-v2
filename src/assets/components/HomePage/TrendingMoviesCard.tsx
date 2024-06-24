@@ -156,7 +156,7 @@ export default function TrendingMoviesCard() {
       </div>
       <div className="relative ">
         <Carousel className="w-full min-h-screen z-10">
-          <div className="absolute xl:top-[60%] md:top-[64%] lg:top-[66%] w-full h-[30%] z-30 ">
+        <div className="absolute xl:top-[60%] md:top-[64%] lg:top-[66%] top-[50%] w-full h-[30%] z-30">
             <div className="relative top-7 mr-[15%]">
               <CarouselNext />
             </div>
