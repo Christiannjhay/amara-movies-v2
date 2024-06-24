@@ -101,7 +101,7 @@ export default function TrendingMoviesCard() {
         const data = await response.json();
         const topRatedMovies: TopMovies[] = data.results.map(
           async (movie: any) => {
-            // Fetch detailed movie information to get genres
+            
             const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`;
             const detailsResponse = await fetch(movieDetailsUrl, {
               method: "GET",
@@ -116,7 +116,7 @@ export default function TrendingMoviesCard() {
             }
 
             const detailsData = await detailsResponse.json();
-            const genres = detailsData.genres.slice(0, 3); // Get top 3 genres
+            const genres = detailsData.genres.slice(0, 3);
 
             return {
               id: movie.id,
@@ -150,26 +150,26 @@ export default function TrendingMoviesCard() {
   return (
     <div className="w-full h-screen">
       <div className="flex justify-center items-center relative">
-        <div className="w-full absolute mt-24 z-20">
+        <div className="w-full absolute mt-24 z-20 ">
           <HomeHeader />
         </div>
       </div>
       <div className="relative ">
-        <Carousel className="w-full min-h-screen z-10">
-        <div className="absolute xl:top-[60%] md:top-[64%] lg:top-[66%] top-[50%] w-full h-[30%] z-30">
+        <Carousel className="w-full min-h-screen z-10 ">
+        <div className="absolute w-full top-[57%] xl:top-[57%] lg:top-[72%] md:top-[72%] sm:top-[57%] z-30 ">
             <div className="relative top-7 mr-[15%]">
               <CarouselNext />
             </div>
             <div className="relative top-7 ml-[84%]">
               <CarouselPrevious />
             </div>
-            <div className="mt-[1%]">
+            <div className="mt-[1%] ">
               <div>
                 <h1 className="flex justify-center font-bold text-white">
                   Trending Movies
                 </h1>
               </div>
-              <div className="mt-2 ml-2">
+              <div className="mt-2 pl-2">
                 <Carousel
                   opts={{
                     align: "start",
@@ -234,15 +234,15 @@ export default function TrendingMoviesCard() {
           <CarouselContent>
             {movies.map((movie) => (
               <CarouselItem key={movie.id}>
-                <div className="w-full h-[350px] sm:h-full relative">
+                <div className="w-full min-h-[500px] sm:h-[500px] md:h-[630px] lg:h-[630px] 2xl:h-full relative">
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     alt={movie.title}
-                    className="w-full h-full max-h-screen"
+                    className="w-full h-full max-h-screen min-h-[500px]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/50"></div>
-                  <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-18 xl:bottom-[39%] left-24 text-white w-[70%]">
+                  <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-10 xl:bottom-[18%] 2xl:bottom-[39%] left-24 text-white w-[70%]">
                     <h1 className="text-white font-extrabold text-sm md:text-3xl lg:text-4xl">
                       {movie.title}
                     </h1>
