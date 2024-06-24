@@ -38,9 +38,9 @@ function HomeSearchBar() {
         />
         <Button
           type="submit"
-          className="bg-[#FFD1DC] text-white rounded-r-xl rounded-l-none p-4 hover:bg-gray-800 flex items-center"
+          className="bg-[#FF3131] text-white rounded-r-xl rounded-l-none p-4 hover:bg-gray-800 flex items-center"
         >
-          <FontAwesomeIcon icon={faSearch} className="text-black" />
+          <FontAwesomeIcon icon={faSearch} className="text-white" />
         </Button>
       </form>
     </Form>

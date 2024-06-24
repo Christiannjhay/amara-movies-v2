@@ -31,6 +31,35 @@ app.get('/api/popular', async (req: Request, res: Response, next) => {
   }
 });
 
+class OddError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'OddError';
+  }
+}
+
+function divideByTwo(amount: Number) {
+  return new Promise((resolve, reject) => {
+    if (typeof amount !== 'number') {
+      reject(new TypeError('amount must be a number'));
+      return;
+    }
+    if (amount <= 0) {
+      reject(new RangeError('amount must be greater than zero'));
+      return;
+    }
+    if (amount % 2) {
+      reject(new OddError('amount'));
+      return;
+    }
+    resolve(amount / 2);
+  });
+}
+
+divideByTwo(7)
+  .then(result => console.log('Result:', result))
+  .catch(error => console.error('Error:', error.message));
+
 app.use(logErrorMiddleware)
 app.use(returnError)
 

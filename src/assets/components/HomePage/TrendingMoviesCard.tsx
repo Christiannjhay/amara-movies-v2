@@ -106,14 +106,14 @@ export default function TrendingMoviesCard() {
                   <div className="absolute inset-0 bg-black/50">
                   </div>
                   <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-18 xl:bottom-64 left-24 text-white w-[70%]">
-                    <h1 className=" text-[#FFD1DC] font-extrabold text-sm md:text-3xl lg:text-4xl">
+                    <h1 className=" text-[#FF3131] font-extrabold text-sm md:text-3xl lg:text-4xl">
                       {movie.title}
                     </h1>
                     <div className="flex flex-row mt-2">
                         <h1 className="text-slate-300 text-sm md:text-base">{getYearFromDate(movie.release_date)}</h1>
                         <h1 className="ml-2 text-slate-300 text-sm md:text-base">{movie.duration}</h1>
                         <h1 className="ml-1 text-slate-300 text-sm md:text-base">min</h1>
-                        <div className="ml-3 text-slate-300 text-sm md:text-base"><StarIcon/></div>
+                        <div className="ml-3 text-sm md:text-base text-yellow-400"><StarIcon/></div>
                         <h1 className="ml-1 text-slate-300 text-sm md:text-base">{formatVoteAverage(movie.vote_average)}</h1>
                         <div className="ml-3 flex flex-row">{movie.genres.map((genre) => (
                         <div key={genre.id} className="mr-2 text-sm md:text-base hidden md:block">
@@ -131,9 +131,9 @@ export default function TrendingMoviesCard() {
                       console.log("Clicked movie ID:", movie.id);
                       navigate(`/view-movie/${movie.id}`);
                     }}
-                    className="bg-[#FFD1DC] hover:bg-[#ddb8c1] text-black py-3 px-4 md:px-6 md:py-6 md:mt-4 rounded-full mt-1 flex items-center">
+                    className="bg-[#FF3131] hover:bg-[#ddb8c1] text-white py-3 px-4 md:px-6 md:py-6 md:mt-4 rounded-full mt-1 flex items-center">
                       <PlayIcon />
-                      <h1 className="ml-2 font-normal text-xs md:text-base">Watch Now</h1>
+                      <h1 className="ml-2 font-normal text-xs text-white md:text-base">Watch Now</h1>
                     </Button>
                   </div>
                 </div>

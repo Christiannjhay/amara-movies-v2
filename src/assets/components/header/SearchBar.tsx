@@ -38,7 +38,7 @@ function SearchBar() {
         />
         <Button
           type="submit"
-          className="bg-[#FFD1DC] text-white rounded-r-xl rounded-l-none p-4 hover:bg-gray-800 flex items-center"
+          className="bg-[#ff3131] text-white rounded-r-xl rounded-l-none p-4 hover:bg-gray-800 flex items-center"
         >
           <FontAwesomeIcon icon={faSearch} className="text-black" />
         </Button>
