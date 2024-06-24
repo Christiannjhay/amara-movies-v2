@@ -37,7 +37,7 @@ export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
   return (
     <div className="h-fit flex justify-center flex-wrap flex-col">
       <div className="flex flex-row ml-5">
-      <div className="text-white">
+      <div className="text-yellow-300">
           <StarIcon />
         </div>
         <h1 className="text-white ml-1">
