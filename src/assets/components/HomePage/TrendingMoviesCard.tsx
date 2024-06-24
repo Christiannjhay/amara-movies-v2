@@ -156,7 +156,7 @@ export default function TrendingMoviesCard() {
       </div>
       <div className="relative overflow-y-scroll">
         <Carousel className="w-full min-h-screen z-10 ">
-        <div className="absolute w-full top-[57%] xl:top-[57%] lg:top-[72%] md:top-[72%] sm:top-[57%] z-30 overflow-y-scroll">
+        <div className="absolute w-full top-[57%] xl:top-[57%] lg:top-[72%] md:top-[72%] sm:top-[57%] z-30 ">
             <div className="hidden relative top-7 mr-[15%] lg:block">
               <CarouselNext />
             </div>
@@ -202,7 +202,7 @@ export default function TrendingMoviesCard() {
                           >
                             <CardContent className="flex justify-start items-end p-3 py-2 h-72 relative">
                               <div className="flex flex-col">
-                                <span className="text-md text-white font-bold z-10 relative">
+                                <span className="text-xl text-white font-bold z-10 relative">
                                   {movie.title}
                                 </span>
                                 <h1 className="z-10 relative flex">
@@ -225,7 +225,7 @@ export default function TrendingMoviesCard() {
                     ))}
                   </CarouselContent>
                   <CarouselNext className="h-20 hidden top-[60%] left-[101%] lg:block" />
-                  <CarouselPrevious className="h-20 hidden left-[101%] top-[30%]" />
+                  <CarouselPrevious className="h-20 hidden left-[101%] top-[30%] lg:block" />
                 </Carousel>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function TrendingMoviesCard() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/50"></div>
-                  <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-10 xl:bottom-[18%] 2xl:bottom-[39%] left-24 text-white w-[70%]">
+                  <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-10 xl:bottom-[18%] 2xl:bottom-[39%] sm:left-4 left-4 md:left-24 text-white w-[70%]">
                     <h1 className="text-white font-extrabold text-sm md:text-3xl lg:text-4xl">
                       {movie.title}
                     </h1>
