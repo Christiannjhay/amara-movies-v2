@@ -154,13 +154,13 @@ export default function TrendingMoviesCard() {
           <HomeHeader />
         </div>
       </div>
-      <div className="relative ">
+      <div className="relative overflow-y-scroll">
         <Carousel className="w-full min-h-screen z-10 ">
-        <div className="absolute w-full top-[57%] xl:top-[57%] lg:top-[72%] md:top-[72%] sm:top-[57%] z-30 ">
-            <div className="relative top-7 mr-[15%]">
+        <div className="absolute w-full top-[57%] xl:top-[57%] lg:top-[72%] md:top-[72%] sm:top-[57%] z-30 overflow-y-scroll">
+            <div className="hidden relative top-7 mr-[15%] lg:block">
               <CarouselNext />
             </div>
-            <div className="relative top-7 ml-[84%]">
+            <div className="relative hidden top-7 ml-[84%] lg:block">
               <CarouselPrevious />
             </div>
             <div className="mt-[1%] ">
@@ -224,8 +224,8 @@ export default function TrendingMoviesCard() {
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <CarouselNext className="h-20 top-[60%] left-[101%]" />
-                  <CarouselPrevious className="h-20 left-[101%] top-[30%]" />
+                  <CarouselNext className="h-20 hidden top-[60%] left-[101%] lg:block" />
+                  <CarouselPrevious className="h-20 hidden left-[101%] top-[30%]" />
                 </Carousel>
               </div>
             </div>
@@ -234,11 +234,11 @@ export default function TrendingMoviesCard() {
           <CarouselContent>
             {movies.map((movie) => (
               <CarouselItem key={movie.id}>
-                <div className="w-full min-h-[500px] sm:h-[500px] md:h-[630px] lg:h-[630px] 2xl:h-full relative">
+                <div className="w-full min-h-[400px] sm:h-[500px] md:h-[630px] lg:h-[630px] 2xl:h-full relative">
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     alt={movie.title}
-                    className="w-full h-full max-h-screen min-h-[500px]"
+                    className="w-full h-full max-h-screen min-h-[400px]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/50"></div>
