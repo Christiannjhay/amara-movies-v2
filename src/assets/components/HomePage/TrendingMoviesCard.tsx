@@ -156,11 +156,11 @@ export default function TrendingMoviesCard() {
       </div>
       <div className="relative ">
         <Carousel className="w-full min-h-screen z-10">
-          <div className="absolute top-[60%] w-full h-[30%] z-30 ">
-            <div className="relative top-7 mr-[14%] ">
+          <div className="absolute xl:top-[60%] md:top-[64%] lg:top-[66%] w-full h-[30%] z-30 ">
+            <div className="relative top-7 mr-[15%]">
               <CarouselNext />
             </div>
-            <div className="relative top-7 ml-[85%]">
+            <div className="relative top-7 ml-[84%]">
               <CarouselPrevious />
             </div>
             <div className="mt-[1%]">
@@ -197,6 +197,7 @@ export default function TrendingMoviesCard() {
                               backgroundPosition: "center",
                               border: "none",
                               boxShadow: "none",
+                              borderRadius: "20px"
                             }}
                           >
                             <CardContent className="flex justify-start items-end p-3 py-2 h-72 relative">
