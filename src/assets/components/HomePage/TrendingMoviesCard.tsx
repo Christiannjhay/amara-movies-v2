@@ -101,7 +101,6 @@ export default function TrendingMoviesCard() {
         const data = await response.json();
         const topRatedMovies: TopMovies[] = data.results.map(
           async (movie: any) => {
-            
             const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`;
             const detailsResponse = await fetch(movieDetailsUrl, {
               method: "GET",
@@ -154,16 +153,16 @@ export default function TrendingMoviesCard() {
           <HomeHeader />
         </div>
       </div>
-      <div className="relative overflow-y-scroll">
-        <Carousel className="w-full min-h-screen z-10 ">
-        <div className="absolute w-full top-[57%] xl:top-[57%] lg:top-[72%] md:top-[72%] sm:top-[57%] z-30 ">
-            <div className="hidden relative top-7 mr-[15%] lg:block">
+      <div className="absolute h-full">
+        <Carousel className="w-full min-h-screen lg:min-h-screen z-10">
+          <div className="absolute w-full top-[38%] 2xl:top-[62%] xl:top-[51%] lg:top-[40%] md:top-[47%] sm:top-[38%] z-30 ">
+            <div className="hidden relative mr-[14%] lg:block">
               <CarouselNext />
             </div>
-            <div className="relative hidden top-7 ml-[84%] lg:block">
+            <div className="relative hidden ml-[84%] lg:block">
               <CarouselPrevious />
             </div>
-            <div className="mt-[1%] ">
+            <div className="">
               <div>
                 <h1 className="flex justify-center font-bold text-white">
                   Trending Movies
@@ -180,24 +179,23 @@ export default function TrendingMoviesCard() {
                     {topRatedMovies.map((movie) => (
                       <CarouselItem
                         key={movie.id}
-                        className="md:basis-1/2 lg:basis-1/5 relative"
+                        className="md:basis-1/2 lg:basis-1/4 relative"
                       >
                         <div className="absolute inset-0 bg-black opacity-55"></div>
 
                         <div className="">
                           <Card
-                          onClick={() => {
-                            console.log("Clicked movie:", movie);
-                            navigate(`/view-movie/${movie.id}`);
-                            
-                          }}
+                            onClick={() => {
+                              console.log("Clicked movie:", movie);
+                              navigate(`/view-movie/${movie.id}`);
+                            }}
                             style={{
                               backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.poster_path})`,
                               backgroundSize: "cover",
                               backgroundPosition: "center",
                               border: "none",
                               boxShadow: "none",
-                              borderRadius: "20px"
+                              borderRadius: "20px",
                             }}
                           >
                             <CardContent className="flex justify-start items-end p-3 py-2 h-72 relative">
@@ -230,72 +228,73 @@ export default function TrendingMoviesCard() {
               </div>
             </div>
           </div>
-
-          <CarouselContent>
-            {movies.map((movie) => (
-              <CarouselItem key={movie.id}>
-                <div className="w-full min-h-[400px] sm:h-[500px] md:h-[630px] lg:h-[630px] 2xl:h-full relative">
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                    alt={movie.title}
-                    className="w-full h-full max-h-screen min-h-[400px]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/50"></div>
-                  <div className="absolute bottom-2 md:bottom-2 bottom lg:bottom-10 xl:bottom-[18%] 2xl:bottom-[39%] sm:left-4 left-4 md:left-24 text-white w-[70%]">
-                    <h1 className="text-white font-extrabold text-sm md:text-3xl lg:text-4xl">
-                      {movie.title}
-                    </h1>
-                    <div className="flex flex-row mt-2">
-                      <h1 className="text-slate-300 text-sm md:text-base">
-                        {getYearFromDate(movie.release_date)}
+          
+            <CarouselContent>
+              {movies.map((movie) => (
+                <CarouselItem key={movie.id}>
+                  <div className="w-full h-[1080px] relative bg-[#181818]">
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                      alt={movie.title}
+                      className="w-full h-[400px] 2xl:h-[1080px] xl:h-[700px] lg:h-[600px] md:h-[500px] sm:h-[400px]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/50"></div>
+                    <div className="absolute bottom-[65%] sm:bottom-[65%] md:bottom-[55%] lg:bottom-[60%] xl:bottom-[50%] 2xl:bottom-[39%] sm:left-4 left-4 md:left-24 text-white w-[70%]">
+                      <h1 className="text-white font-extrabold text-sm md:text-3xl lg:text-4xl">
+                        {movie.title}
                       </h1>
-                      <h1 className="ml-2 text-slate-300 text-sm md:text-base">
-                        {movie.duration}
-                      </h1>
-                      <h1 className="ml-1 text-slate-300 text-sm md:text-base">
-                        min
-                      </h1>
-                      <div className="ml-3 text-sm md:text-base text-yellow-400">
-                        <StarIcon />
+                      <div className="flex flex-row mt-2">
+                        <h1 className="text-slate-300 text-sm md:text-base">
+                          {getYearFromDate(movie.release_date)}
+                        </h1>
+                        <h1 className="ml-2 text-slate-300 text-sm md:text-base">
+                          {movie.duration}
+                        </h1>
+                        <h1 className="ml-1 text-slate-300 text-sm md:text-base">
+                          min
+                        </h1>
+                        <div className="ml-3 text-sm md:text-base text-yellow-400">
+                          <StarIcon />
+                        </div>
+                        <h1 className="ml-1 text-slate-300 text-sm md:text-base">
+                          {formatVoteAverage(movie.vote_average)}
+                        </h1>
+                        <div className="ml-3 flex flex-row">
+                          {movie.genres.map((genre) => (
+                            <div
+                              key={genre.id}
+                              className="mr-2 text-sm md:text-base hidden md:block"
+                            >
+                              <span className="bg-gray-200 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold">
+                                {genre.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <h1 className="ml-1 text-slate-300 text-sm md:text-base">
-                        {formatVoteAverage(movie.vote_average)}
-                      </h1>
-                      <div className="ml-3 flex flex-row">
-                        {movie.genres.map((genre) => (
-                          <div
-                            key={genre.id}
-                            className="mr-2 text-sm md:text-base hidden md:block"
-                          >
-                            <span className="bg-gray-200 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold">
-                              {genre.name}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                      <h2 className="lg:text-lg xl:text-xl text-white font-light mt-2 line-clamp-3 hidden md:block">
+                        {movie.overview}
+                      </h2>
+                      <Button
+                        onClick={() => {
+                          console.log("Clicked movie ID:", movie.id);
+                          navigate(`/view-movie/${movie.id}`);
+                        }}
+                        className="bg-[#FF3131] hover:bg-red-600 text-white py-3 px-4 md:px-6 md:py-6 md:mt-4 rounded-full mt-1 flex items-center"
+                      >
+                        <PlayIcon />
+                        <h1 className="ml-2 font-normal text-xs text-white md:text-base">
+                          Watch Now
+                        </h1>
+                      </Button>
                     </div>
-                    <h2 className="lg:text-lg xl:text-xl text-white font-light mt-2 line-clamp-3 hidden md:block">
-                      {movie.overview}
-                    </h2>
-                    <Button
-                      onClick={() => {
-                        console.log("Clicked movie ID:", movie.id);
-                        navigate(`/view-movie/${movie.id}`);
-                      }}
-                      className="bg-[#FF3131] hover:bg-red-600 text-white py-3 px-4 md:px-6 md:py-6 md:mt-4 rounded-full mt-1 flex items-center"
-                    >
-                      <PlayIcon />
-                      <h1 className="ml-2 font-normal text-xs text-white md:text-base">
-                        Watch Now
-                      </h1>
-                    </Button>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+      
       </div>
     </div>
   );
