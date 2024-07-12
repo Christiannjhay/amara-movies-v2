@@ -11,7 +11,7 @@ interface Movie {
 }
 
 export default function RecommendedCard() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [, setMovies] = useState<Movie[]>([]);
   const [recommendations, setRecommendations] = useState<Movie[]>([]);
   const navigate = useNavigate();
   

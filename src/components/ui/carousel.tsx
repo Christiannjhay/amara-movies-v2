@@ -5,9 +5,6 @@ import useEmblaCarousel, {
 } from "embla-carousel-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import LeftIcon from "@/icons/LeftIcon"
-import RightIcon from "@/icons/RightIcon"
-import PlayIcon from "@/icons/PlayIcon"
 import PlayIconRight from "@/icons/PlayIconRight"
 import PlayIconLeft from "@/icons/PlayIconLeft"
 
