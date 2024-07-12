@@ -43,7 +43,7 @@ export default function ViewMovie() {
               <div className="flex justify-start m-2 ">
                 <MovieTitle movieDetails={movieDetails} />
               </div>
-              <div className="flex justify-center m-2 ">
+              <div className="flex justify-center m-0 sm:m-2">
                 <MovieOverview movieDetails={movieDetails} />
               </div>
               <div className="flex m-2 ">

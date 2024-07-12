@@ -245,7 +245,7 @@ export default function TrendingMoviesCard() {
                       {movie.title}
                     </h1>
                     <div className="grid grid-cols-1 md:grid-cols-12 ">
-                      <div className="flex flex-row mt-2 col-span-1">
+                      <div className="flex flex-row mt-0 sm:mt-0 md:mt-2 col-span-1">
                         <h1 className="text-slate-300 text-sm md:text-base">
                           {getYearFromDate(movie.release_date)}
                         </h1>

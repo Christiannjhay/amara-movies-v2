@@ -37,17 +37,17 @@ export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
   return (
     <div className="h-fit flex justify-center flex-wrap flex-col">
       <div className="flex flex-row ml-5">
-      <div className="text-yellow-300">
+      <div className="text-yellow-300 size-1 mr-4 sm:size-4 sm:mr-2">
           <StarIcon />
         </div>
-        <h1 className="text-white ml-1">
+        <h1 className="text-white ml-1 text-xs sm:text-base">
           {formatVoteAverage(movieDetails?.vote_average)}
         </h1>
-        <h1 className="text-white ml-2">
+        <h1 className="text-white ml-2 text-xs sm:text-base">
           {getYearFromDate(movieDetails?.release_date)}
         </h1>
-        <h1 className="text-white ml-2">{movieDetails?.runtime}</h1>
-        <h1 className=" text-white ml-1">min</h1>
+        <h1 className="text-white ml-2 text-xs sm:text-base">{movieDetails?.runtime}</h1>
+        <h1 className=" text-white ml-1 text-xs sm:text-base">min</h1>
         
       </div>
 
