@@ -7,6 +7,9 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import LeftIcon from "@/icons/LeftIcon"
 import RightIcon from "@/icons/RightIcon"
+import PlayIcon from "@/icons/PlayIcon"
+import PlayIconRight from "@/icons/PlayIconRight"
+import PlayIconLeft from "@/icons/PlayIconLeft"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -204,7 +207,7 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       size={size}
       className={cn(
-        "absolute h-8 w-8 bg-[#ff3131] hover:bg-red-600",
+        "absolute h-8 w-8 bg-gray-200 opacity-70 hover:bg-[#ff3131]",
         orientation === "horizontal"
           ? " top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -215,7 +218,7 @@ const CarouselPrevious = React.forwardRef<
       disabled={!canScrollPrev}
       {...props}
     >
-      <LeftIcon/>
+      <PlayIconLeft/>
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -233,7 +236,7 @@ const CarouselNext = React.forwardRef<
       ref={ref}
       size={size}
       className={cn(
-        "absolute h-8 w-8 bg-[#ff3131] hover:bg-red-600",
+        "absolute h-8 w-8 bg-gray-300 opacity-70 hover:bg-[#ff3131]",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -243,7 +246,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <RightIcon/>
+      <PlayIconRight/>
       <span className="sr-only">Next slide</span>
     </Button>
   )

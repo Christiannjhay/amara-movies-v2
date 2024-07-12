@@ -1,3 +1,4 @@
+
 import TrendingMoviesCard from "../HomePage/TrendingMoviesCard";
 
 export default function HomePage() {

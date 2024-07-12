@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import PlayIcon from "@/icons/PlayIcon";
 import StarIcon from "@/icons/StarIcon";
 import { Card, CardContent } from "@/components/ui/card";
+import Recommended from "./Recommended";
 
 interface Movie {
   id: number;
@@ -227,6 +228,7 @@ export default function TrendingMoviesCard() {
                 </Carousel>
               </div>
             </div>
+            <Recommended/>
           </div>
 
           <CarouselContent>
@@ -298,6 +300,7 @@ export default function TrendingMoviesCard() {
           </CarouselContent>
         </Carousel>
       </div>
+     
     </div>
   );
 }
