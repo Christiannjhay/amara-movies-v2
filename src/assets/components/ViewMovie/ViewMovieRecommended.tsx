@@ -1,16 +1,10 @@
 import RecommendedIcon from "@/icons/RecommendedIcon";
-import RecommendedCard from "./RecommendedCard";
+import ViewMovieRecommendedCard from "./ViewMovieRecommendedCard";
 
-export default function Recommended() {
+export default function ViewMovieRecommended() {
   return (
     <div className="h-fit w-full bg-[#181818] ">
       <div className="flex flex-col justify-center items-center">
-        <div className="mb-6 text-center">
-          <h1 className="text-[#6b6767] mt-10">
-            If you enjoy the website, please consider sharing it with your
-            friends. Thank you!
-          </h1>
-        </div>
       </div>
 
       <div className="text-white text-2xl font-bold ml-10 flex ">
@@ -25,7 +19,7 @@ export default function Recommended() {
       </div>
 
       <div className="ml-5">
-        <RecommendedCard />
+        <ViewMovieRecommendedCard/>
       </div>
     </div>
   );

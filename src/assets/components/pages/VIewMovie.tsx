@@ -3,6 +3,8 @@ import MoviePlayer from "../ViewMovie/MoviePlayer";
 import MovieTitle from "../ViewMovie/MovieTitle";
 import MovieOverview from "../ViewMovie/MovieOverview";
 import MovieDetails from "../ViewMovie/MovieDetails";
+import Recommended from "../HomePage/Recommended";
+import ViewMovieRecommended from "../ViewMovie/ViewMovieRecommended";
 
 interface MovieDetails {
   backdrop_path: string;
@@ -53,6 +55,7 @@ export default function ViewMovie() {
           </div>
         </div>
       </div>
+      <ViewMovieRecommended/>
     </div>
   );
 }
