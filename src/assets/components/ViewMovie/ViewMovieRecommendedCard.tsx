@@ -16,6 +16,7 @@ export default function ViewMovieRecommendedCard() {
   const { id } = useParams<{ id: string }>();
   
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchRecommendations = async () => {
       const apiKey = import.meta.env.VITE_REACT_APP_MOVIE_API_TOKEN;
 
@@ -57,6 +58,7 @@ export default function ViewMovieRecommendedCard() {
             movie={movie}
             onClick={() => {
               navigate(`/view-movie/${movie.id}`);
+              window.scrollTo(0, 0);
             }}
           />
         ))}
