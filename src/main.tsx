@@ -6,6 +6,7 @@ import Header from "./assets/components/header/Header";
 import HomePage from "./assets/components/pages/HomePage";
 import ViewMovie from "./assets/components/pages/VIewMovie";
 import SearchResult from "./assets/components/pages/SearchResults";
+
 const router = createBrowserRouter([
   {
     path: "/",

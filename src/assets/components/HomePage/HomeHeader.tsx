@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Logo from "../header/logo";
 import HomeSearchBar from "./HomeSearchBar";
-import LoginButton from "./LoginButton";
+
 import { SheetSide } from "./SheetSide";
+import { LoginDialog } from "../LoginDialog/LoginDialog";
 
 export default function HomeHeader() {
   return (
@@ -25,7 +26,7 @@ export default function HomeHeader() {
         <HomeSearchBar />
       </div>
       <div className="hidden mt-8 sm:block 2xl:ml-44 xl:ml-36 lg:ml-28 md:ml-20 sm:ml-10">
-        <LoginButton />
+        <LoginDialog/>
       </div>
     </div>
   );

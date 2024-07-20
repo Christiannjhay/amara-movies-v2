@@ -7,8 +7,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import SheetLoginButton from "./SheetLoginButton";
+
 import Menu from "@/icons/Menu";
+import { LoginDialog } from "../LoginDialog/LoginDialog";
 
 export function SheetSide() {
   return (
@@ -18,7 +19,7 @@ export function SheetSide() {
         <SheetContent className="bg-[#181818]">
           <SheetHeader>
             <SheetTitle className="text-white">Menu</SheetTitle>
-            <SheetLoginButton />
+            <LoginDialog/>
           </SheetHeader>
         </SheetContent>
       </Sheet>
