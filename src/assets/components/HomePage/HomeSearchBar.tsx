@@ -18,7 +18,7 @@ function HomeSearchBar() {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex w-2/4">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex w-3/4 lg:w-2/4">
         <FormField
           
           control={control}
