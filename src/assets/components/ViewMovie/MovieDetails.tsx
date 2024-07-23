@@ -145,7 +145,7 @@ export default function MovieDetails({ movieDetails }: MovieDetailsProps) {
         <div className="col-span-2 mt-1 text-[#FF3131]">
           <p>Country:</p>
         </div>
-        <div className="col-span-10">
+        <div className="col-span-10 flex">
           {topProductionCountry.map((country, index) => (
             <div
               key={country.id}
