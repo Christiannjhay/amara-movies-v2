@@ -37,12 +37,12 @@ export default function RecommendedCard() {
         const data = await response.json();
         setMovies(data.results);
 
-        // Pick a random movie ID from the fetched popular movies
+       
         const randomMovie =
           data.results[Math.floor(Math.random() * data.results.length)];
         const randomMovieId = randomMovie.id;
 
-        // Fetch recommendations for the random movie ID
+       
         const recommendationsUrl = `https://api.themoviedb.org/3/movie/${randomMovieId}/recommendations?language=en-US&page=2`;
         const recommendationsResponse = await fetch(recommendationsUrl, {
           method: "GET",

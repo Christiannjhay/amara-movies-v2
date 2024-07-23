@@ -156,7 +156,7 @@ export default function TrendingMoviesCard() {
       </div>
       <div className="absolute h-full">
         <Carousel className="w-full min-h-screen lg:min-h-screen z-10">
-          <div className="absolute w-full top-[38%] 2xl:top-[62%] xl:top-[51%] lg:top-[40%] md:top-[47%] sm:top-[38%] z-30 ">
+          <div className="absolute w-full top-[29%] 2xl:top-[62%] xl:top-[51%] lg:top-[40%] md:top-[47%] sm:top-[38%] z-30 ">
             <div className="hidden relative mr-[14%] lg:block">
               <CarouselNext />
             </div>
@@ -238,11 +238,11 @@ export default function TrendingMoviesCard() {
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     alt={movie.title}
-                    className="w-full h-[400px] 2xl:h-[1080px] xl:h-[700px] lg:h-[600px] md:h-[500px] sm:h-[400px]"
+                    className="w-full h-[300px] 2xl:h-[1080px] xl:h-[700px] lg:h-[600px] md:h-[500px] sm:h-[400px]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/50"></div>
-                  <div className="absolute bottom-[65%] sm:bottom-[65%] md:bottom-[55%] lg:bottom-[60%] xl:bottom-[50%] 2xl:bottom-[39%] sm:left-4 left-4 md:left-24 text-white w-[70%]">
+                  <div className="absolute bottom-[73%] sm:bottom-[65%] md:bottom-[55%] lg:bottom-[60%] xl:bottom-[50%] 2xl:bottom-[39%] sm:left-4 left-4 md:left-24 text-white w-[70%]">
                     <h1 className="text-white font-extrabold text-sm md:text-3xl lg:text-4xl">
                       {movie.title}
                     </h1>
