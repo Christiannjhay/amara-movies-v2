@@ -201,16 +201,16 @@ export default function TrendingMoviesCard() {
                           >
                             <CardContent className="flex justify-start items-end p-3 py-2 h-72 relative">
                               <div className="flex flex-col">
-                                <span className="text-xl text-white font-bold z-10 relative">
+                                <span className="text-xl text-white font-bold z-10 relative bottom-3">
                                   {movie.title}
                                 </span>
-                                <h1 className="z-10 relative flex">
+                                <h1 className="z-10 relative flex bottom-2">
                                   {movie.genres.map((genre) => (
                                     <div
                                       key={genre.id}
                                       className="mr-2 text-sm md:text-base"
                                     >
-                                      <span className=" text-[#ff3131]  py-1 text-sm font-bold">
+                                      <span className=" text-[#ff3131] py-1 text-sm font-bold">
                                         {genre.name}
                                       </span>
                                     </div>
