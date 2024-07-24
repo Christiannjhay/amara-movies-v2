@@ -41,11 +41,11 @@ export function LoginDialog() {
               <CardContent className="space-y-2">
                 <div className="space-y-1">
                   <Label htmlFor="username" className="text-white font-regular">Username</Label>
-                  <Input id="username" defaultValue="" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131]" />
+                  <Input id="username" defaultValue="" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131] focus:border-2" />
                 </div>
                 <div className="space-y-1">
                   <Label htmlFor="password" className="text-white font-regular">Password</Label>
-                  <Input id="password" defaultValue="" type="password" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131]" />
+                  <Input id="password" defaultValue="" type="password" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131] focus:border-2" />
                 </div>
               </CardContent>
               <CardFooter>
@@ -61,11 +61,11 @@ export function LoginDialog() {
               <CardContent className="space-y-2">
                 <div className="space-y-1">
                   <Label htmlFor="username" className="text-white">Username</Label>
-                  <Input id="username" type="text" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131]" />
+                  <Input id="username" type="text" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131] focus:border-2" />
                 </div>
                 <div className="space-y-1">
                   <Label htmlFor="password" className="text-white">Password</Label>
-                  <Input id="password" type="password" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131]" />
+                  <Input id="password" type="password" className="bg-[#27272A] text-white rounded-2xl border-[#FF3131] focus:border-2" />
                 </div>
               </CardContent>
               <CardFooter>

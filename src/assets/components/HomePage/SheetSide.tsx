@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 
 import Menu from "@/icons/Menu";
-import { LoginDialog } from "../LoginDialog/LoginDialog";
+import { LoginDialog } from "../LoginDialog/LoginRegisterDialog";
 
 export function SheetSide() {
   return (

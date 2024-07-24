@@ -3,7 +3,7 @@ import Logo from "../header/logo";
 import HomeSearchBar from "./HomeSearchBar";
 
 import { SheetSide } from "./SheetSide";
-import { LoginDialog } from "../LoginDialog/LoginDialog";
+import { LoginDialog } from "../LoginDialog/LoginRegisterDialog";
 
 export default function HomeHeader() {
   return (
