@@ -37,7 +37,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           </button>
         </div>
       </div>
-      <div className="p-1">
+      <div className="p-1 flex items-start flex-col">
         <h3 className="text-red-500 font-normal text-sm">{getYear(movie.release_date)}</h3>
         <h2 className="text-white text-sm font-bold mb-2">{movie.title}</h2>
       </div>
