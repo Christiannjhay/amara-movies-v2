@@ -60,7 +60,6 @@ export default function MovieTooltip({
             <p className="text-lg font-bold">{title}</p>
             <div className="flex">
               <p className="text-red-500 font-medium">{release_date}</p>
-
               <div className="mt-[2px] ml-2">
                 <StarIcon2 />
               </div>
