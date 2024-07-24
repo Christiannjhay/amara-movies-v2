@@ -49,7 +49,7 @@ export function LoginDialog() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button className="bg-[#FF3131]  text-white hover:bg-red-900 w-full rounded-2xl">Login</Button>
+                <Button className="bg-[#FF3131] text-white hover:bg-red-600 w-full rounded-2xl">Login</Button>
               </CardFooter>
             </Card>
           </TabsContent>
@@ -69,7 +69,7 @@ export function LoginDialog() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button className="bg-[#FF3131] text-white w-full rounded-2xl hover:bg-red-900 hover:text-white">Sign Up</Button>
+                <Button className="bg-[#FF3131] text-white w-full rounded-2xl hover:bg-red-600 hover:text-white">Sign Up</Button>
               </CardFooter>
             </Card>
           </TabsContent>
