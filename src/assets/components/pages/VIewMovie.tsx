@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MoviePlayer from "../ViewMovie/MoviePlayer";
 import MovieTitle from "../ViewMovie/MovieTitle";
 import MovieOverview from "../ViewMovie/MovieOverview";
@@ -20,6 +20,10 @@ interface MovieDetails {
 export default function ViewMovie() {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="bg-[#181818] min-h-screen flex flex-col w-full">
       <div className="">
